@@ -3,8 +3,9 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
   var socket = io('http://localhost:8091');
   socket.on('connectado', function (data) {
-    console.log(data);
+
     socket.emit('status');
+
   });
 
   socket.on('status', function (data) {
