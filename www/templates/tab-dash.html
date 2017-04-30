@@ -1,8 +1,12 @@
 <ion-view view-title="Sala automa">
   <ion-content class="padding">
+  	<ion-refresher pulling-text="Atualizando" on-refresh="atualizaDados()"  refreshing-text="Atualizando ..." refreshing-icon="ion-loading-b" ></ion-refresher>
     <h2>Estado</h2>
-    <p>
-    This is the Ionic starter for tabs-based apps. For other starters and ready-made templates, check out the <a href="http://market.ionic.io/starters" target="_blank">Ionic Market</a>.
+    <p ng-if="!dadosInvalidos">
+   		<span>Luminosidade: </span>{{dados.luminosidade}}<br/>
+   		<span>Movimentacao: </span>{{dados.movimentacao}}<br/>
+   		<span>Movimentacao 2: </span>{{dados.movimentacao2}}<br/>
+   		<span>Temperatura: </span>{{dados.temperatura}}<br/>
     </p>
     
   </ion-content>

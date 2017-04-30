@@ -1,39 +1,22 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
-  var socket = io('http://localhost:8091');
-  socket.on('connectado', function (data) {
-
-    socket.emit('status');
-
-  });
-
-  socket.on('status', function (data) {
-       console.log(data);    
-  });
+.controller('DashCtrl', function($scope,$http) {
+    $scope.dados = {};
+    $scope.dadosInvalidos = true;
+    var url = 'localhost';
+    
+    $scope.atualizaDados = function() {
+      $http({
+        method: 'GET',
+        url: 'http://'+url+'/status'
+      }).then(function successCallback(response) {
+          console.log(response);
+          $scope.dados = response.data;
+          $scope.dadosInvalidos = false
+      }, function errorCallback(response) {
+          console.log(response);    
+      });
+      $scope.$broadcast('scroll.refreshComplete');
+    }
+    $scope.atualizaDados();
 })
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
