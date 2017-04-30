@@ -1,13 +1,17 @@
-<ion-view view-title="Sala automa">
+<ion-view view-title="Sala automação">
   <ion-content class="padding">
   	<ion-refresher pulling-text="Atualizando" on-refresh="atualizaDados()"  refreshing-text="Atualizando ..." refreshing-icon="ion-loading-b" ></ion-refresher>
-    <h2>Estado</h2>
+    <center>
+    <h2>Estado da sala</h2>
     <p ng-if="!dadosInvalidos">
    		<span>Luminosidade: </span>{{dados.luminosidade}}<br/>
    		<span>Movimentacao: </span>{{dados.movimentacao}}<br/>
    		<span>Movimentacao 2: </span>{{dados.movimentacao2}}<br/>
    		<span>Temperatura: </span>{{dados.temperatura}}<br/>
     </p>
-    
+    <button ng-click="ligaRele1()">Liga</button>
+
+    <button ng-click="desligaRele1()">Desliga</button>
+    </center>
   </ion-content>
 </ion-view>
