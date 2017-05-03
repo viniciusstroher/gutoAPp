@@ -3,14 +3,15 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope,$http,$ionicLoading,$timeout) {
     $scope.dados = {};
     $scope.dadosInvalidos = true;
-    var url = 'localhost';
+    $scope.modelo = {};
+    $scope.modelo.ip = 'localhost';
     
 
 
     $scope.atualizaDados = function() {
       $http({
         method: 'GET',
-        url: 'http://'+url+'/status'
+        url: 'http://'+$scope.modelo.ip+'/status'
       }).then(function successCallback(response) {
           console.log(response);
           $scope.dados = response.data;
@@ -44,7 +45,7 @@ angular.module('starter.controllers', [])
       $ionicLoading.show();
       $http({
         method: 'GET',
-        url: 'http://'+url+'/liga_luz'
+        url: 'http://'+$scope.modelo.ip+'/liga_luz'
       }).then(function successCallback(response) {
           console.log(response);
           $ionicLoading.hide();
@@ -61,7 +62,7 @@ angular.module('starter.controllers', [])
       $ionicLoading.show();
       $http({
         method: 'GET',
-        url: 'http://'+url+'/desliga_luz'
+        url: 'http://'+$scope.modelo.ip+'/desliga_luz'
       }).then(function successCallback(response) {
           console.log(response);
           $ionicLoading.hide();
