@@ -17,11 +17,11 @@ angular.module('starter.controllers', [])
           $scope.dados = response.data;
           $scope.dadosInvalidos = false
 
-          if($scope.dados.luminosidade < 200){
+          /*if($scope.dados.luminosidade < 200){
             $scope.ligaRele1();
           }else{
             $scope.desligaRele1();
-          }
+          }*/
 
       }, function errorCallback(response) {
           console.log(response);    
@@ -63,6 +63,70 @@ angular.module('starter.controllers', [])
       $http({
         method: 'GET',
         url: 'http://'+$scope.modelo.ip+'/desliga_luz'
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+     $scope.ligaRele2 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/liga_luz2'
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+    
+
+
+    $scope.desligaRele2 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/desliga_luz2'
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+     $scope.ligaRele3 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/liga_luz3'
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+    
+
+
+    $scope.desligaRele3 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/desliga_luz3'
       }).then(function successCallback(response) {
           console.log(response);
           $ionicLoading.hide();
