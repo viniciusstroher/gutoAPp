@@ -4,6 +4,7 @@
     <center>
     <h2>Estado da sala</h2>
     <p ng-if="!dadosInvalidos">
+      <span>Atualizado em : {{dados.data}} as {{dados.hora}}</span><br/>
    		<span>Luminosidade: </span>{{dados.luminosidade}}<br/>
       <span>Luminosidade2: </span>{{dados.luminosidade2}}<br/><br/>
    		<span>Movimentacao: </span>{{dados.movimentacao}}<br/>
@@ -13,27 +14,30 @@
     </p>
 
     <p ng-if="!dadosInvalidosVoltagem1">
-      <span>Corrente Sala 02: </span>{{dadosVoltagem.corrente}}
-    
+      <span>Atualizado em : {{dadosVoltagem1.data}} as {{dadosVoltagem1.hora}}</span><br/>
+      <span>Corrente Sala 02: </span>{{dadosVoltagem1.corrente}} <b>A</b><br/>
+      <span>Potencia Sala 02: </span>{{dadosVoltagem1.corrente*220}} <b>W</b><br/>
     </p>
 
     <p ng-if="!dadosInvalidosVoltagem2">
-      <span>Corrente Sala 03: </span>{{dadosVoltagem2.corrente}}
+      <span>Atualizado em : {{dadosVoltagem2.data}} as {{dadosVoltagem2.hora}}</span><br/>
+      <span>Corrente Sala 03: </span>{{dadosVoltagem2.corrente}} <b>A</b><br/>
+      <span>Potencia Sala 03: </span>{{dadosVoltagem2.corrente*220}} <b>W</b><br/>
       
     </p>
     <br/><br/>
     
-    <center><h2>1 rele</h2></center><br/>
-    <button ng-click="ligaRele1()">Liga</button>
-    <button ng-click="desligaRele1()">Desliga</button><br/>
+    <center><h2>1 rele <!--( <b>{{dados.rele1 == 1 ? 'Ligado' : 'Desligado'}} </b>)--></h2></center><br/>
+    <button class="button" ng-click="ligaRele1()">Liga</button>
+    <button class="button" ng-click="desligaRele1()">Desliga</button><br/>
    
-    <center><h2>2 rele</h2></center><br/>
-    <button ng-click="ligaRele2()">Liga</button>
-    <button ng-click="desligaRele2()">Desliga</button><br/>
+    <center><h2>2 rele <!--( <b>{{dados.rele2 == 1 ? 'Ligado' : 'Desligado'}} </b>)--></h2></center><br/>
+    <button class="button" ng-click="ligaRele2()">Liga</button>
+    <button class="button" ng-click="desligaRele2()">Desliga</button><br/>
     
-    <center><h2>3 rele</h2></center><br/>
-    <button ng-click="ligaRele3()">Liga</button>
-    <button ng-click="desligaRele3()">Desliga</button><br/>
+    <center><h2>3 rele <!--( <b>{{dados.rele3 == 1 ? 'Ligado' : 'Desligado'}} </b>)--></h2></center><br/>
+    <button class="button" ng-click="ligaRele3()">Liga</button>
+    <button class="button" ng-click="desligaRele3()">Desliga</button><br/>
     <br/><br/>
     IP:<input ng-model="modelo.ip" />
     </center>

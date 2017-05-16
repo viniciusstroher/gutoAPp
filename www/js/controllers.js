@@ -3,6 +3,8 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope,$http,$ionicLoading,$timeout) {
     $scope.dados = {};
     $scope.dadosInvalidos = true;
+    $scope.dadosInvalidosVoltagem1 = true;
+    $scope.dadosInvalidosVoltagem2 = true;
     $scope.modelo = {};
     $scope.modelo.ip = 'localhost';
     
@@ -26,6 +28,28 @@ angular.module('starter.controllers', [])
       }, function errorCallback(response) {
           console.log(response);    
       });
+
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+':81/corrente'
+      }).then(function successCallback(response) {
+
+          $scope.dadosVoltagem1 = response.data;
+          $scope.dadosInvalidosVoltagem1 = false;
+      }, function errorCallback(response) {
+          console.log(response);    
+      });
+
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+':82/corrente'
+      }).then(function successCallback(response) {
+          $scope.dadosVoltagem2 = response.data;
+          $scope.dadosInvalidosVoltagem2 = false;
+      }, function errorCallback(response) {
+          console.log(response);    
+      });
+
       $scope.$broadcast('scroll.refreshComplete');
     }
     //$scope.atualizaDados();
