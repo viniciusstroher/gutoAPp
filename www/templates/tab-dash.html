@@ -5,10 +5,23 @@
     <h2>Estado da sala</h2>
     <p ng-if="!dadosInvalidos">
    		<span>Luminosidade: </span>{{dados.luminosidade}}<br/>
+      <span>Luminosidade2: </span>{{dados.luminosidade2}}<br/><br/>
    		<span>Movimentacao: </span>{{dados.movimentacao}}<br/>
-   		<span>Movimentacao 2: </span>{{dados.movimentacao2}}<br/>
+   		<span>Movimentacao 2: </span>{{dados.movimentacao2}}<br/><br/>
    		<span>Temperatura: </span>{{dados.temperatura}}<br/>
+      <span>Temperatura2: </span>{{dados.temperatura2}}<br/>
     </p>
+
+    <p ng-if="!dadosInvalidosVoltagem1">
+      <span>Corrente Sala 02: </span>{{dadosVoltagem.corrente}}
+    
+    </p>
+
+    <p ng-if="!dadosInvalidosVoltagem2">
+      <span>Corrente Sala 03: </span>{{dadosVoltagem2.corrente}}
+      
+    </p>
+    <br/><br/>
     
     <center><h2>1 rele</h2></center><br/>
     <button ng-click="ligaRele1()">Liga</button>
@@ -21,7 +34,7 @@
     <center><h2>3 rele</h2></center><br/>
     <button ng-click="ligaRele3()">Liga</button>
     <button ng-click="desligaRele3()">Desliga</button><br/>
-
+    <br/><br/>
     IP:<input ng-model="modelo.ip" />
     </center>
   </ion-content>
