@@ -12,12 +12,14 @@
    		<span>Temperatura: </span>{{dados.temperatura}}<br/>
       <span>Temperatura2: </span>{{dados.temperatura2}}<br/>
     </p>
+    <p ng-if="dadosInvalidos">Arduino mestre não está conectado.</p></br>
 
     <p ng-if="!dadosInvalidosVoltagem1">
       <span>Atualizado em : {{dadosVoltagem1.data}} as {{dadosVoltagem1.hora}}</span><br/>
       <span>Corrente Sala 02: </span>{{dadosVoltagem1.corrente}} <b>A</b><br/>
       <span>Potencia Sala 02: </span>{{dadosVoltagem1.corrente*220}} <b>W</b><br/>
     </p>
+    <p ng-if="dadosInvalidosVoltagem1">Arduino Sala02 não está conectado.</p></br>
 
     <p ng-if="!dadosInvalidosVoltagem2">
       <span>Atualizado em : {{dadosVoltagem2.data}} as {{dadosVoltagem2.hora}}</span><br/>
@@ -25,6 +27,7 @@
       <span>Potencia Sala 03: </span>{{dadosVoltagem2.corrente*220}} <b>W</b><br/>
       
     </p>
+    <p ng-if="dadosInvalidosVoltagem2">Arduino Sala03 não está conectado.</p></br>
     <br/><br/>
     
     <center><h2>1 rele <!--( <b>{{dados.rele1 == 1 ? 'Ligado' : 'Desligado'}} </b>)--></h2></center><br/>
@@ -39,7 +42,10 @@
     <button class="button" ng-click="ligaRele3()">Liga</button>
     <button class="button" ng-click="desligaRele3()">Desliga</button><br/>
     <br/><br/>
-    IP:<input ng-model="modelo.ip" />
+
+    IP:   <input ng-model="modelo.ip" /><br/>
+    LDR1: <input ng-model="modelo.ldr1" /><br/>
+    LDR2: <input ng-model="modelo.ldr2" /><br/>
     </center>
   </ion-content>
 </ion-view>

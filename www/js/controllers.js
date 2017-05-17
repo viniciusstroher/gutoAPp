@@ -5,9 +5,11 @@ angular.module('starter.controllers', [])
     $scope.dadosInvalidos = true;
     $scope.dadosInvalidosVoltagem1 = true;
     $scope.dadosInvalidosVoltagem2 = true;
-    $scope.modelo = {};
-    $scope.modelo.ip = 'localhost';
     
+    $scope.modelo      = {};
+    $scope.modelo.ip   = 'localhost';
+    $scope.modelo.ldr1 = 200;
+    $scope.modelo.ldr2 = 600;
 
 
     $scope.atualizaDados = function() {
@@ -151,6 +153,36 @@ angular.module('starter.controllers', [])
       $http({
         method: 'GET',
         url: 'http://'+$scope.modelo.ip+'/desliga_luz3'
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaLDR1 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/ldr1?valor='+$scope.modelo.ldr1
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaLDR2 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/ldr2?valor='+$scope.modelo.ldr2
       }).then(function successCallback(response) {
           console.log(response);
           $ionicLoading.hide();
