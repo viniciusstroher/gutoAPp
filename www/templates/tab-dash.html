@@ -44,8 +44,12 @@
     <br/><br/>
 
     IP:   <input ng-model="modelo.ip" /><br/>
-    LDR1: <input ng-model="modelo.ldr1" /><button class="button button-small" ng-click="atualizaLDR1()">Atualiza</button><br/>
-    LDR2: <input ng-model="modelo.ldr2" /><button class="button button-small" ng-click="atualizaLDR2()">Atualiza</button><br/>
+    <br/>
+    LDR1 Corte: <input ng-model="modelo.ldr1" /><button class="button button-small" ng-click="atualizaLDR1()">Atualiza</button><br/>
+    LDR2 Corte: <input ng-model="modelo.ldr2" /><button class="button button-small" ng-click="atualizaLDR2()">Atualiza</button><br/>
+    LDR1 Fator Correcao: <input ng-model="modelo.ldr1_fator" /><button class="button button-small" ng-click="atualizaLdr1Fator()">Atualiza</button><br/>
+    LDR2 Fator Correcao: <input ng-model="modelo.ldr2_fator" /><button class="button button-small" ng-click="atualizaLdr2Fator()">Atualiza</button><br/> 
+    <br/>
     Tempo de Resposta: <input ng-model="modelo.tdp" />MS<button class="button button-small" ng-click="atualizaMS()">Atualiza</button><br/>
     Amostras: <input ng-model="modelo.amostras" />MS<button class="button button-small" ng-click="atualizaAmostras()">Atualiza</button><br/>
     </center>

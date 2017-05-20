@@ -12,6 +12,8 @@ angular.module('starter.controllers', [])
     $scope.modelo.ldr2 = 600;
     $scope.modelo.tdp  = 6000;
     $scope.modelo.amostras = 6;
+    $scope.modelo.ldr1_fator = 0.2;
+    $scope.modelo.ldr2_fator = 0.2;
     
     $scope.atualizaDados = function() {
       $http({
@@ -221,4 +223,36 @@ angular.module('starter.controllers', [])
       });
       
     }
+
+    $scope.atualizaLdr1Fator = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/ldr1_fator?valor='+$scope.modelo.ldr1_fator
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaLdr2Fator = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/ldr2_fator?valor='+$scope.modelo.ldr2_fator
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    
 })
