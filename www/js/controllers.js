@@ -8,12 +8,15 @@ angular.module('starter.controllers', [])
     
     $scope.modelo      = {};
     $scope.modelo.ip   = 'localhost';
-    $scope.modelo.ldr1 = 200;
-    $scope.modelo.ldr2 = 600;
+    
+    $scope.modelo.ldr1 = 400;
+    $scope.modelo.ldr2 = 400;
+    
     $scope.modelo.tdp  = 6000;
+
     $scope.modelo.amostras = 6;
-    $scope.modelo.ldr1_fator = 0.2;
-    $scope.modelo.ldr2_fator = 0.2;
+    $scope.modelo.ldr1_fator = 0.6875;
+    $scope.modelo.ldr2_fator = 0.1930;
     
     $scope.atualizaDados = function() {
       $http({
