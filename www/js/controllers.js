@@ -10,8 +10,9 @@ angular.module('starter.controllers', [])
     $scope.modelo.ip   = 'localhost';
     $scope.modelo.ldr1 = 200;
     $scope.modelo.ldr2 = 600;
-
-
+    $scope.modelo.tdp  = 6000;
+    $scope.modelo.amostras = 6;
+    
     $scope.atualizaDados = function() {
       $http({
         method: 'GET',
@@ -146,8 +147,6 @@ angular.module('starter.controllers', [])
       
     }
     
-
-
     $scope.desligaRele3 = function(){
       $ionicLoading.show();
       $http({
@@ -183,6 +182,36 @@ angular.module('starter.controllers', [])
       $http({
         method: 'GET',
         url: 'http://'+$scope.modelo.ip+'/ldr2?valor='+$scope.modelo.ldr2
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaMS = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/ms?valor='+$scope.modelo.tdp
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaAmostras = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/amostras?valor='+$scope.modelo.amostras
       }).then(function successCallback(response) {
           console.log(response);
           $ionicLoading.hide();
