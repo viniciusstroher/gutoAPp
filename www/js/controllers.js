@@ -17,6 +17,9 @@ angular.module('starter.controllers', [])
     $scope.modelo.amostras = 6;
     $scope.modelo.ldr1_fator = 0.6875;
     $scope.modelo.ldr2_fator = 0.1930;
+
+    $scope.modelo.tempoReArmar = 60000;
+    $scope.modelo.modoPir      = false;
     
     $scope.atualizaDados = function() {
       $http({
@@ -247,6 +250,42 @@ angular.module('starter.controllers', [])
       $http({
         method: 'GET',
         url: 'http://'+$scope.modelo.ip+'/ldr2_fator?valor='+$scope.modelo.ldr2_fator
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+
+    $scope.atualizaPirModeBtnClk = function(modo){
+      $scope.modelo.modoPir = modo;
+      $scope.atualizaPirMode();
+    }
+    
+    $scope.atualizaPirMode = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/pir_mode?valor='+$scope.modelo.modoPir
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaPirReArmar = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/pir_re_armar?valor='+$scope.modelo.tempoReArmar
       }).then(function successCallback(response) {
           console.log(response);
           $ionicLoading.hide();
