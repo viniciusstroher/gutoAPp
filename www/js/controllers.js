@@ -18,6 +18,10 @@ angular.module('starter.controllers', [])
     $scope.modelo.ldr1_fator = 0.6875;
     $scope.modelo.ldr2_fator = 0.1930;
     
+    $scope.modelo.csv_time_mestre = 30000;
+    $scope.modelo.csv_time_sala02 = 30000;
+    $scope.modelo.csv_time_sala03 = 30000;
+
     $scope.atualizaDados = function() {
       $http({
         method: 'GET',
@@ -26,12 +30,6 @@ angular.module('starter.controllers', [])
           console.log(response);
           $scope.dados = response.data;
           $scope.dadosInvalidos = false
-
-          /*if($scope.dados.luminosidade < 200){
-            $scope.ligaRele1();
-          }else{
-            $scope.desligaRele1();
-          }*/
 
       }, function errorCallback(response) {
           console.log(response);    
@@ -257,5 +255,49 @@ angular.module('starter.controllers', [])
       
     }
 
+    $scope.atualizaCsvTimeMestre = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+'/contagem_csv?valor='+$scope.modelo.csv_time_mestre
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaCsvTimeSala02 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+':82/contagem_csv?valor='+$scope.modelo.csv_time_sala02
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
+
+    $scope.atualizaCsvTimeSala03 = function(){
+      $ionicLoading.show();
+      $http({
+        method: 'GET',
+        url: 'http://'+$scope.modelo.ip+':81/contagem_csv?valor='+$scope.modelo.csv_time_sala03
+      }).then(function successCallback(response) {
+          console.log(response);
+          $ionicLoading.hide();
+      }, function errorCallback(response) {
+          console.log(response);    
+          $ionicLoading.hide();
+      });
+      
+    }
     
 })
