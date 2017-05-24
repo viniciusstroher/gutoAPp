@@ -17,21 +17,23 @@
           <span>Temperatura2: </span>{{dados.temperatura2}}<br/>
         </p>
         <p ng-if="dadosInvalidos">Arduino mestre não está conectado.</p></br>
+        
+        <p ng-if="!dadosInvalidosVoltagem2">
+          <span>Atualizado em : {{dadosVoltagem2.data}} as {{dadosVoltagem2.hora}}</span><br/>
+          <span>Corrente Sala 02: </span>{{dadosVoltagem2.corrente}} <b>A</b><br/>
+          <span>Potencia Sala 02: </span>{{dadosVoltagem2.corrente*220}} <b>W</b><br/>
+          
+        </p>
+        <p ng-if="dadosInvalidosVoltagem2">Arduino Sala02 não está conectado.</p></br>
 
         <p ng-if="!dadosInvalidosVoltagem1">
           <span>Atualizado em : {{dadosVoltagem1.data}} as {{dadosVoltagem1.hora}}</span><br/>
-          <span>Corrente Sala 02: </span>{{dadosVoltagem1.corrente}} <b>A</b><br/>
-          <span>Potencia Sala 02: </span>{{dadosVoltagem1.corrente*220}} <b>W</b><br/>
+          <span>Corrente Sala 03: </span>{{dadosVoltagem1.corrente}} <b>A</b><br/>
+          <span>Potencia Sala 03: </span>{{dadosVoltagem1.corrente*220}} <b>W</b><br/>
         </p>
-        <p ng-if="dadosInvalidosVoltagem1">Arduino Sala02 não está conectado.</p></br>
+        <p ng-if="dadosInvalidosVoltagem1">Arduino Sala03 não está conectado.</p></br>
 
-        <p ng-if="!dadosInvalidosVoltagem2">
-          <span>Atualizado em : {{dadosVoltagem2.data}} as {{dadosVoltagem2.hora}}</span><br/>
-          <span>Corrente Sala 03: </span>{{dadosVoltagem2.corrente}} <b>A</b><br/>
-          <span>Potencia Sala 03: </span>{{dadosVoltagem2.corrente*220}} <b>W</b><br/>
-          
-        </p>
-        <p ng-if="dadosInvalidosVoltagem2">Arduino Sala03 não está conectado.</p></br>
+        
       </div>
       
       
