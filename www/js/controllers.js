@@ -30,10 +30,8 @@ angular.module('starter.controllers', [])
         method: 'GET',
         url: 'http://'+$scope.modelo.ip+'/status'
       }).then(function successCallback(response) {
-          console.log(response);
           $scope.dados = response.data;
-          $scope.dadosInvalidos = false
-
+          $scope.dadosInvalidos = false;
       }, function errorCallback(response) {
           console.log(response);    
       });
@@ -42,7 +40,6 @@ angular.module('starter.controllers', [])
         method: 'GET',
         url: 'http://'+$scope.modelo.ip+':81/corrente'
       }).then(function successCallback(response) {
-
           $scope.dadosVoltagem1 = response.data;
           $scope.dadosInvalidosVoltagem1 = false;
       }, function errorCallback(response) {
@@ -61,15 +58,12 @@ angular.module('starter.controllers', [])
 
       $scope.$broadcast('scroll.refreshComplete');
     }
-    //$scope.atualizaDados();
-
-
+    
     $scope.atualizaSilent = function(){
       $scope.atualizaDados();
       $timeout(function(){
         $scope.atualizaSilent();
       },10000);
-
     }
     $scope.atualizaSilent();
 
@@ -88,8 +82,6 @@ angular.module('starter.controllers', [])
       });
       
     }
-    
-
 
     $scope.desligaRele1 = function(){
       $ionicLoading.show();
@@ -121,7 +113,6 @@ angular.module('starter.controllers', [])
       
     }
     
-
 
     $scope.desligaRele2 = function(){
       $ionicLoading.show();
