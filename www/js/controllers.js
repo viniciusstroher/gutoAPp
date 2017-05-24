@@ -22,8 +22,8 @@ angular.module('starter.controllers', [])
     $scope.modelo.modoPir      = false;
     
     $scope.modelo.csv_time_mestre = 30000;
-    $scope.modelo.csv_time_sala02 = 30000;
-    $scope.modelo.csv_time_sala03 = 30000;
+    $scope.modelo.csv_time_sala02 = 60000;
+    $scope.modelo.csv_time_sala03 = 60000;
 
     $scope.atualizaDados = function() {
       $http({
