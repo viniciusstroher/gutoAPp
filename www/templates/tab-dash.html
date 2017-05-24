@@ -45,18 +45,22 @@
           LDR2 Fator Correcao: <input ng-model="modelo.ldr2_fator" /><button class="button button-small" ng-click="atualizaLdr2Fator()">Atualiza</button><br/> 
           <br/>
           Tempo de Resposta: <input ng-model="modelo.tdp" />MS<button class="button button-small" ng-click="atualizaMS()">Atualiza</button><br/>
-          Amostras: <input ng-model="modelo.amostras" />MS<button class="button button-small" ng-click="atualizaAmostras()">Atualiza</button><br/>
 
+         Amostras: <input ng-model="modelo.amostras" /><button class="button button-small" ng-click="atualizaAmostras()">Atualiza</button><br/>
+          <br/>
+          Modo Pir: <button class="button button-small" ng-click="atualizaPirModeBtnClk(true)">Ativado</button><button class="button button-small" ng-click="atualizaPirModeBtnClk(false)">Desativado</button><br/>
+          Tempo Re Armar: <input ng-model="modelo.tempoReArmar" />MS<button class="button button-small" ng-click="atualizaPirReArmar()">Atualiza</button><br/>
           <br/>
           <br/>
           Tempo CSV Mestre: <input ng-model="modelo.csv_time_mestre" />MS<button class="button button-small" ng-click="atualizaCsvTimeMestre()">Atualiza</button><br/>
           Tempo CSV Sala 02: <input ng-model="modelo.csv_time_sala02" />MS<button class="button button-small" ng-click="atualizaCsvTimeSala02()">Atualiza</button><br/>
           Tempo CSV Sala 03: <input ng-model="modelo.csv_time_sala03" />MS<button class="button button-small" ng-click="atualizaCsvTimeSala03()">Atualiza</button><br/>
+
       </div>
     </div>
 
     <br/>
-
+    <br/>
     <div align="center" style="display:flex;width:100%">
 
       <div style="width:33%">
